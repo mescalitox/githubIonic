@@ -24,3 +24,7 @@ Panneau de configuration\Tous les Panneaux de configuration\Gestionnaire d'ident
 
 #service worker : 
 *   débrancher cable réseau : meme url rejouée, retour effectué
+
+#sqlite
+
+[https://ionicframework.com/docs/v2/native/sqlite/]

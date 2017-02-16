@@ -1,3 +1,5 @@
+import { UserDetailsPage } from './../pages/user-details/user-details';
+import { GithubUsers } from './../providers/github-users';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -14,7 +16,8 @@ import { ReposPage } from './../pages/repos/repos';
     MyApp,
     OrganisationsPage,
     UsersPage,
-    ReposPage
+    ReposPage,
+    UserDetailsPage
     // HelloIonicPage,
     // ItemDetailsPage,
     // ListPage
@@ -28,10 +31,11 @@ import { ReposPage } from './../pages/repos/repos';
     OrganisationsPage,
     UsersPage,
     ReposPage,
+    UserDetailsPage
     // HelloIonicPage,
     // ItemDetailsPage,
     // ListPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, GithubUsers]
 })
 export class AppModule {}

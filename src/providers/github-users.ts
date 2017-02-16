@@ -14,7 +14,7 @@ import { User } from './../models/user';
 @Injectable()
 export class GithubUsers {
 
-githubApiUrl = 'https://api.github.com';
+  githubApiUrl = 'https://api.github.com';
 
   constructor(public http: Http) {
     console.log('Hello GithubUsers Provider');
@@ -24,6 +24,18 @@ githubApiUrl = 'https://api.github.com';
   load(): Observable<User[]> {
     return this.http.get(`${this.githubApiUrl}/users`)
       .map(res => <User[]>res.json());
+  }
+
+  // Get github user by providing login(username)
+  loadDetails(login: string): Observable<User> {
+    return this.http.get(`${this.githubApiUrl}/users/${login}`)
+      .map(res => <User>(res.json()))
+  }
+
+  // Search for github users  
+  searchUsers(searchParam: string): Observable<User[]> {
+    return this.http.get(`${this.githubApiUrl}/search/users?q=${searchParam}`)
+      .map(res => <User[]>(res.json().items))
   }
 
 }
